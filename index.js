@@ -1,5 +1,7 @@
+var payment = require('./lib/payment');
 
-var redpack = require('./lib/redpack');
+//exports.sendRedpack = redpack.sendRedpack;
+//exports.Redpack = redpack.Redpack;
 
-exports.sendRedpack = redpack.sendRedpack;
-exports.Redpack = redpack.Redpack;
+exports.sendPayment = redpack.sendPayment;
+exports.Payment = redpack.Payment;

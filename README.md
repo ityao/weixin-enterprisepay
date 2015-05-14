@@ -14,23 +14,19 @@ npm install weixin-enterprisepay
 var Payment = require('weixin-enterprisepay').Payment;
 
 var payment = Payment({
-	mch_id: 'xxx',
+	mchid: 'xxx',
 	partner_key: 'xxxxxx',
 	pfx: fs.readFileSync('./wxpay_cert.p12'),
-	wxappid: 'wxxxxxxx'
+	mch_appid: 'wxxxxxxx'
 });
 
 payment.send({
-	mch_billno: '123426900220150325'+Math.random().toString().substr(2,10),
-	send_name: '红包来自',
-	wishing: '收好不谢！',
-	re_openid: '红包接收人openid',
-	total_amount: 100,
-	total_num: 1,
-	client_ip: '14.23.102.146',
-	nick_name: 'XXXX',
-	act_name: '发测试红包',
-	remark: 'remark'
+	partner_trade_no: '123426900220150325'+Math.random().toString().substr(2,10),
+	openid: '红包接收人openid',
+	check_name: 'NO_CHECK',
+	amount: 100,
+	spbill_create_ip: '14.23.102.146',
+	desc: 'remark'
 }, function(err, result){
 	console.log(result);
 })
@@ -38,25 +34,19 @@ payment.send({
 
 直接调用 sendPayment() 输入所有参数。
 ```js
-var wxredpack = require('weixin-redpack');
+var entpayment = require('weixin-enterprisepay');
 
-wxredpack.sendRedpack({
-  mch_id: 'xxx',
+entpayment.sendPayment({
+  mchid: 'xxx',
   partner_key: 'xxxxxxx',
   pfx: fs.readFileSync('./application_cert.p12'),
-  wxappid: 'wxxxxxx',
-  mch_billno: '1234567890201503251234567890',
-  nick_name: 'nickname',
-  send_name: 'sendname',
-  re_openid: '红包接收人openid'
-  total_amount: 100,
-  max_value: 100,
-  min_value: 100,
-  total_num: 1,
-  wishing: 'thanks',
-  client_ip: '192.168.1.10',
-  act_name: '发红包啦',
-  remark: '收好不谢！'
+  mch_appid: 'wxxxxxx',
+  partner_trade_no: '1234567890201503251234567890',
+  openid: '红包接收人openid',
+  check_name: 'NO_CHECK',
+  amount: 100,
+  spbill_create_ip: '14.23.102.146',
+  desc: 'remark'
 }, function(err, result){
   console.log(result);
 });
