@@ -1,6 +1,6 @@
 {
   "name": "weixin-enterprisepay",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "send money by enterprise",
   "main": "index.js",
   "dependencies": {

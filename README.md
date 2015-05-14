@@ -21,7 +21,7 @@ var payment = Payment({
 });
 
 payment.send({
-	partner_trade_no: '123426900220150325'+Math.random().toString().substr(2,10),
+	partner_trade_no: '123426900220150325',
 	openid: '接收人openid',
 	check_name: 'NO_CHECK',
 	amount: 100,
