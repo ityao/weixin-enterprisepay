@@ -1,25 +1,26 @@
-# weixin-redpack
-微信发企业红包 for node.js
+# weixin-enterprisepay
+修改自 weixin-redpack (https://github.com/tvrcgo/weixin-redpack)
+微信发企业钱 for node.js
 
 ### Installation
 ```
-npm install weixin-redpack
+npm install weixin-enterprisepay
 ```
 
 ### Usage
 
-先创建一个红包实例 Redpack，再调用 send() 发送红包，减少每次发红包的参数。
+先创建一个红包实例 Payment，再调用 send() 发送红包，减少每次发红包的参数。
 ```js
-var Redpack = require('weixin-redpack').Redpack;
+var Payment = require('weixin-enterprisepay').Payment;
 
-var redpack = Redpack({
+var payment = Payment({
 	mch_id: 'xxx',
 	partner_key: 'xxxxxx',
 	pfx: fs.readFileSync('./wxpay_cert.p12'),
 	wxappid: 'wxxxxxxx'
 });
 
-redpack.send({
+payment.send({
 	mch_billno: '123426900220150325'+Math.random().toString().substr(2,10),
 	send_name: '红包来自',
 	wishing: '收好不谢！',
@@ -35,7 +36,7 @@ redpack.send({
 })
 ```
 
-直接调用 sendRedpack() 输入所有参数。
+直接调用 sendPayment() 输入所有参数。
 ```js
 var wxredpack = require('weixin-redpack');
 
