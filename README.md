@@ -9,7 +9,7 @@ npm install weixin-enterprisepay
 
 ### Usage
 
-先创建一个红包实例 Payment，再调用 send() 发送红包，减少每次发红包的参数。
+先创建一个付款实例 Payment，再调用 send() 发送付款，减少每次发付款的参数。
 ```js
 var Payment = require('weixin-enterprisepay').Payment;
 
@@ -22,7 +22,7 @@ var payment = Payment({
 
 payment.send({
 	partner_trade_no: '123426900220150325'+Math.random().toString().substr(2,10),
-	openid: '红包接收人openid',
+	openid: '接收人openid',
 	check_name: 'NO_CHECK',
 	amount: 100,
 	spbill_create_ip: '14.23.102.146',
@@ -42,7 +42,7 @@ entpayment.sendPayment({
   pfx: fs.readFileSync('./application_cert.p12'),
   mch_appid: 'wxxxxxx',
   partner_trade_no: '1234567890201503251234567890',
-  openid: '红包接收人openid',
+  openid: '接收人openid',
   check_name: 'NO_CHECK',
   amount: 100,
   spbill_create_ip: '14.23.102.146',
